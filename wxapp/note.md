@@ -1,6 +1,6 @@
 # 当前进度：
 
-该看 4.1 了
+该看 6.6 了
 
 # 1.1 微信小程序开发项目介绍及知识点概述
 
@@ -86,7 +86,6 @@ const app = getApp()
 
 console.log(app.globalData)
 
-
 # 3.2 page 内的 onload 及 data 差值表达式
 
 在onLoad里面：
@@ -149,17 +148,35 @@ loading="{{false}}"
 
 # 4.3 在案例中使用 api 中的交互
 
+封装成函数可以避免一些回调地狱
+
+《ES6 Promise的用法，ES7 async / await 的用法》
+
 # 4.4 常见的导航栏 api 接口
 
 # 4.5 全局与页面配置中关于 window 窗口 UI 设置
+
+可以设置"entryPagePath":"pages/api/api" 来设置启动页。
+
+页面配置会比全局配置的优先级更高。
+
+"navigationStyle":"custom"：通屏配置
 
 # 4.6 tabBar 底部 tab 栏的配置用法
 
 # 4.7 api 中 navigate 路由接口与组件的关系
 
+可以传参
+
 # 4.8 【小案例】初识 wx.request 获取网络请求并渲染至页面
 
+学习一下 api post的使用
+
 # 4.9 【小案例】开启下拉刷新页面 enablePullDownRefresh
+
+无论请求成功与否，都关闭：
+
+![1748177756502](image/note/1748177756502.png)
 
 # 4.10 【小案例】触底加载更多数据 onReachBottom
 
@@ -173,6 +190,15 @@ loading="{{false}}"
 
 # 4.15 自定义组件传递属性 properties
 
+
+小程序最多只能同时保留 **10 个页面**在页面栈中，超出后 `navigateTo` 会失效。
+
+你可以用 `getCurrentPages()` 查看当前栈深：
+
+如果 `pages/demo/demo` 是在 tabBar 中配置的页面：
+
+那就不能用 `wx.navigateTo()` 跳转，而是要用 `wx.switchTab()`：
+
 # 5.1 注册小程序账号获取 appid 及个人和企业版差异
 
 # 5.2 在微信小程序如何使用 scss 编译 wxss 文件
@@ -181,15 +207,44 @@ loading="{{false}}"
 
 # 5.4 定义公共的头部组件 component 引入的各个页面
 
+把组件可以注册到全局配置界面： `app.json` 中
+
 # 5.5 页面 banner 使用 swiper 的更多属性
 
 # 5.6 scroll-view 滑动组件在项目中的使用
 
 # 5.7 页面中引入背景图片的两种方式
 
+![1748248537978](image/note/1748248537978.png)
+
+使用 transform 不会脱离文档流
+
+
+![1748248653608](image/note/1748248653608.png)
+
+学习一下 em
+
+在CSS中使用url时：1、可以把图片转换为 base64   2、使用网络的图片地址
+
 # 5.8 flex 弹性布局的更多用法布局新闻组件
 
+语法：
+
+.block*3
+
+字体两端对齐：
+
+text-align:justify
+
+CSS 中两行省略号
+
+![1748249783211](image/note/1748249783211.png)
+
 # 5.9 第三方 UI 组件库 vant weapp 和 TDesign
+
+小图标不建议使用图片，比较占空间，一般使用字体图标，iconfont
+
+研究一下字体图标  van-icon 是怎么实现的
 
 # 5.10 vant 中的字体图标在项目中的使用
 
@@ -199,13 +254,31 @@ loading="{{false}}"
 
 # 5.13 animation 动画制作客服浮窗
 
+border-radius:50%
+
+可以变成一个圆形
+
+透明效果：
+
+opacity:0
+
 # 6.1 请求项目接口渲染首页数据
 
 # 6.2 自定义组件进阶 - 父组件向子组件传值
 
+可以直接向子组件传一个对象：
+
+![1748264784661](image/note/1748264784661.png)
+
+![1748264800031](image/note/1748264800031.png)
+
 # 6.3 将数据通过自定义方法进行格式化
 
+![1748265653820](image/note/1748265653820.png)
+
 # 6.4 promise 封装 request 请求的用法
+
+`防抖` `节流` 
 
 # 6.5 封装的接口在项目中调用
 
